@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.Text?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.image.Image?>
+
+<BorderPane prefHeight="768.0" prefWidth="1366.0" 
+            xmlns="http://javafx.com/javafx/17" 
+            xmlns:fx="http://javafx.com/fxml/1" 
+            fx:controller="com.bookstore.controller.DashboardController"
+            stylesheets="@styles.css">
+
+    <top>
+        <HBox alignment="CENTER_LEFT" spacing="20" styleClass="top-bar" prefHeight="60.0">
+            <padding>
+                <Insets left="20" right="20"/>
+            </padding>
+            <Text text="HỆ THỐNG QUẢN LÝ NHÀ SÁCH" 
+                  style="-fx-font-size: 16px; -fx-font-weight: 700; -fx-fill: #333;"/>
+            
+            <Region HBox.hgrow="ALWAYS"/>
+            
+            <Label fx:id="userLabel" text="Xin chào, User" 
+                   style="-fx-font-weight: 600;"/>
+            <Button fx:id="logoutButton" text="Đăng xuất" 
+                    onAction="#handleLogout" 
+                    styleClass="button-secondary"/>
+        </HBox>
+    </top>
+
+    <left>
+        <VBox fx:id="sidebar" styleClass="sidebar" prefWidth="60.0">
+            <padding>
+                <Insets top="10" bottom="10"/>
+            </padding>
+            <ListView fx:id="navigationList" styleClass="list-view-transparent"/>
+        </VBox>
+    </left>
+    <center>
+        <BorderPane fx:id="contentPane">
+            <padding>
+                <Insets top="20" right="20" bottom="20" left="20"/>
+            </padding>
+        </BorderPane>
+        </center>
+
+</BorderPane>

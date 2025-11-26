@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.Text?>
+
+<StackPane prefHeight="720.0" prefWidth="1280.0" 
+           xmlns="http://javafx.com/javafx/17" 
+           xmlns:fx="http://javafx.com/fxml/1" 
+           fx:controller="com.bookstore.controller.LoginController"
+           stylesheets="@styles.css"
+           style="-fx-background-color: #F5F5F5;">
+    <children>
+        
+        <VBox alignment="CENTER" spacing="20.0" styleClass="card" maxWidth="450.0">
+            <padding>
+                <Insets top="30" right="40" bottom="30" left="40"/>
+            </padding>
+            <Text text="Đăng Nhập Hệ Thống" 
+                  style="-fx-font-size: 24px; -fx-font-weight: 700; -fx-fill: #333;"/>
+            
+            <TextField fx:id="usernameField" promptText="Tên đăng nhập" 
+                       styleClass="input-field" prefHeight="45.0"/>
+            
+            <PasswordField fx:id="passwordField" promptText="Mật khẩu" 
+                           styleClass="input-field" prefHeight="45.0"/>
+            
+            <Button fx:id="loginButton" text="Đăng nhập" 
+                    onAction="#handleLogin" 
+                    styleClass="button-primary" 
+                    maxWidth="Infinity" prefHeight="45.0"/>
+            
+            <Button fx:id="resetButton" text="Đổi mật khẩu" 
+                    onAction="#handleResetPassword" 
+                    styleClass="button-secondary" 
+                    maxWidth="Infinity"/>
+        </VBox>
+    </children>
+</StackPane>

@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.Text?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.layout.VBox?> <VBox spacing="20.0" xmlns="http://javafx.com/javafx/17" 
+      xmlns:fx="http://javafx.com/fxml/1" 
+      fx:controller="com.bookstore.controller.HomeController">
+    <children>
+        <Text text="Chào mừng trở lại!" 
+              style="-fx-font-size: 28px; -fx-font-weight: 700; -fx-fill: #333;"/>
+        
+        <VBox styleClass="card" VBox.vgrow="ALWAYS">
+            <TilePane hgap="25" vgap="25" VBox.vgrow="ALWAYS" 
+                      style="-fx-background-color: transparent;">
+                <padding>
+                    <Insets top="20"/>
+                </padding>
+                <children>
+                
+                    <Button fx:id="salesButton" text="Bán hàng" styleClass="hub-button">
+                        <graphic>
+                            <ImageView fitWidth="64" fitHeight="64">
+                                <Image url="/com/bookstore/view/images/icon_sales.png"/>
+                            </ImageView>
+                        </graphic>
+                    </Button>
+                    
+                    <Button fx:id="productsButton" text="Quản lý Sản phẩm" styleClass="hub-button">
+                        <graphic>
+                            <ImageView fitWidth="64" fitHeight="64">
+                                <Image url="/com/bookstore/view/images/icon_products.png"/>
+                            </ImageView>
+                        </graphic>
+                    </Button>
+                    
+                    <Button fx:id="invoicesButton" text="Quản lý Hóa đơn" styleClass="hub-button">
+                        <graphic>
+                            <ImageView fitWidth="64" fitHeight="64">
+                                <Image url="/com/bookstore/view/images/icon_invoices.png"/>
+                            </ImageView>
+                        </graphic>
+                    </Button>
+
+                    <Button fx:id="importInvoiceButton" text="Hoá đơn Nhập kho" styleClass="hub-button">
+                        <graphic>
+                            <ImageView fitWidth="64" fitHeight="64">
+                                <Image url="/com/bookstore/view/images/icon_import.png"/>
+                            </ImageView>
+                        </graphic>
+                    </Button>
+                    
+                    <Button fx:id="reportsButton" text="Báo cáo" styleClass="hub-button">
+                        <graphic>
+                            <ImageView fitWidth="64" fitHeight="64">
+                                <Image url="/com/bookstore/view/images/icon_reports.png"/>
+                            </ImageView>
+                        </graphic>
+                    </Button>
+                    
+                    <Button fx:id="employeesButton" text="Quản lý Nhân viên" styleClass="hub-button">
+                        <graphic>
+                            <ImageView fitWidth="64" fitHeight="64">
+                                <Image url="/com/bookstore/view/images/icon_employees.png"/>
+                            </ImageView>
+                        </graphic>
+                    </Button>
+                    
+                     <Button fx:id="customersButton" text="Quản lý Khách hàng" styleClass="hub-button">
+                        <graphic>
+                            <ImageView fitWidth="64" fitHeight="64">
+                                <Image url="/com/bookstore/view/images/icon_customers.png"/>
+                            </ImageView>
+                        </graphic>
+                    </Button>
+                    
+                </children>
+            </TilePane>
+        </VBox> </children>
+</VBox>
