@@ -1,6 +1,7 @@
 package com.bookstore.dao;
 
 import com.bookstore.model.BangChamCong;
+import com.bookstore.model.NhanVien;
 import com.bookstore.util.DatabaseManager;
 import java.sql.*;
 import java.time.LocalDate;
@@ -115,5 +116,164 @@ public class BangChamCongDAO {
 			ps.executeUpdate();
 		}
 	}
+    public double tinhLuongThang(int maNV, int thang, int nam, double luongGio)
+            throws SQLException {
+
+        String sql = """
+            SELECT SUM(GioLam)
+            FROM BangChamCong
+            WHERE MaNV = ?
+            AND MONTH(NgayLam) = ?
+            AND YEAR(NgayLam) = ?
+        """;
+
+        try (Connection conn = DatabaseManager.getConnection();
+             PreparedStatement ps = conn.prepareStatement(sql)) {
+
+            ps.setInt(1, maNV);
+            ps.setInt(2, thang);
+            ps.setInt(3, nam);
+
+            ResultSet rs = ps.executeQuery();
+            if (rs.next()) {
+                return rs.getDouble(1) * luongGio;
+            }
+        }
+        return 0;
+    }
+    public List<BangChamCong> getAllWithTenNV() throws SQLException {
+        List<BangChamCong> list = new ArrayList<>();
+
+        String sql = """
+            SELECT b.*, n.TenNV
+            FROM BangChamCong b
+            JOIN NhanVien n ON b.MaNV = n.MaNV
+        """;
+
+        try (Connection conn = DatabaseManager.getConnection();
+             PreparedStatement ps = conn.prepareStatement(sql);
+             ResultSet rs = ps.executeQuery()) {
+
+            while (rs.next()) {
+                BangChamCong cc = new BangChamCong();
+                cc.setMaChamCong(rs.getInt("MaChamCong"));
+                cc.setMaNV(rs.getInt("MaNV"));
+                cc.setTenNV(rs.getString("TenNV")); 
+                cc.setNgayLam(rs.getDate("NgayLam").toLocalDate());
+                cc.setGioVao(rs.getTime("GioVao") != null ? rs.getTime("GioVao").toLocalTime() : null);
+                cc.setGioRa(rs.getTime("GioRa") != null ? rs.getTime("GioRa").toLocalTime() : null);
+                cc.setGioLam(rs.getDouble("GioLam"));
+                list.add(cc);
+            }
+        }
+        return list;
+    }
+    public List<BangChamCong> getByNhanVien(int maNV) throws SQLException {
+        List<BangChamCong> list = new ArrayList<>();
+        String sql = """
+            SELECT cc.*, nv.TenNV
+            FROM BangChamCong cc
+            JOIN NhanVien nv ON cc.MaNV = nv.MaNV
+            WHERE cc.MaNV = ?
+            ORDER BY NgayLam DESC, GioVao DESC
+        """;
+
+        try (Connection conn = DatabaseManager.getConnection();
+             PreparedStatement ps = conn.prepareStatement(sql)) {
+
+            ps.setInt(1, maNV);
+            ResultSet rs = ps.executeQuery();
+
+            while (rs.next()) {
+                BangChamCong cc = new BangChamCong();
+                cc.setMaNV(rs.getInt("MaNV"));
+                cc.setTenNV(rs.getString("TenNV"));
+                cc.setNgayLam(rs.getDate("NgayLam").toLocalDate());
+                cc.setGioVao(rs.getTime("GioVao") != null ? rs.getTime("GioVao").toLocalTime() : null);
+                cc.setGioRa(rs.getTime("GioRa") != null ? rs.getTime("GioRa").toLocalTime() : null);
+                cc.setGioLam(rs.getDouble("GioLam"));
+                list.add(cc);
+            }
+        }
+        return list;
+    }
+    public double tongGioLamTheoThang(int maNV, int thang, int nam) throws SQLException {
+        String sql = """
+            SELECT SUM(GioLam)
+            FROM BangChamCong
+            WHERE MaNV = ?
+              AND MONTH(NgayLam) = ?
+              AND YEAR(NgayLam) = ?
+        """;
+
+        try (Connection conn = DatabaseManager.getConnection();
+             PreparedStatement ps = conn.prepareStatement(sql)) {
+
+            ps.setInt(1, maNV);
+            ps.setInt(2, thang);
+            ps.setInt(3, nam);
+
+            ResultSet rs = ps.executeQuery();
+            if (rs.next()) {
+                return rs.getDouble(1);
+            }
+        }
+        return 0;
+    }
+    public double tinhLuongThang(int maNV, int thang, int nam) throws SQLException {
+        double tongGio = tongGioLamTheoThang(maNV, thang, nam);
+
+        double LUONG_GIO = 20000;
+
+        return tongGio * LUONG_GIO;
+    }
+
+    public BangChamCong getChamCongHomNayDangMo(int maNV) throws SQLException {
+        String sql = """
+            SELECT *
+            FROM BangChamCong
+            WHERE MaNV = ?
+              AND NgayLam = ?
+              AND GioRa IS NULL
+        """;
+
+        try (Connection conn = DatabaseManager.getConnection();
+             PreparedStatement ps = conn.prepareStatement(sql)) {
+
+            ps.setInt(1, maNV);
+            ps.setDate(2, Date.valueOf(LocalDate.now()));
+
+            ResultSet rs = ps.executeQuery();
+            if (rs.next()) {
+                BangChamCong cc = new BangChamCong();
+                cc.setMaChamCong(rs.getInt("MaChamCong"));
+                cc.setMaNV(rs.getInt("MaNV"));
+                cc.setNgayLam(rs.getDate("NgayLam").toLocalDate());
+                cc.setGioVao(rs.getTime("GioVao").toLocalTime());
+                return cc;
+            }
+        }
+        return null;
+    }
+    public void resetGioLamSauKhiTraLuong(int maNV, int thang, int nam)
+            throws SQLException {
+
+        String sql = """
+            UPDATE BangChamCong
+            SET GioLam = 0
+            WHERE MaNV = ?
+              AND MONTH(NgayLam) = ?
+              AND YEAR(NgayLam) = ?
+        """;
+
+        try (Connection conn = DatabaseManager.getConnection();
+             PreparedStatement ps = conn.prepareStatement(sql)) {
+
+            ps.setInt(1, maNV);
+            ps.setInt(2, thang);
+            ps.setInt(3, nam);
+            ps.executeUpdate();
+        }
+    }
 
 }

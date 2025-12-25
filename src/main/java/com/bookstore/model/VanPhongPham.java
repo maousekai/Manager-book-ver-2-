@@ -7,22 +7,27 @@ public class VanPhongPham {
     private int soLuong;
     private String nhaCungCap;
     private int nguongDatHang;
+    private String khuyenMai;
     private String ghiChu;
     private String anh;
+    private int maLoaiVPP;
 
     public VanPhongPham() {}
     
-    public VanPhongPham(int maVPP ,String tenVPP, double donGia, int soLuong, String nhaCungCap, int nguongDatHang, String ghiChu ,String anh) {
+    public VanPhongPham(int maVPP, String tenVPP, double donGia, int soLuong, 
+            String nhaCungCap, int nguongDatHang, String ghiChu, String anh, String khuyenMai, int maLoaiVPP) {
     	this.maVPP = maVPP;
-		this.tenVPP = tenVPP;
-		this.donGia = donGia;
-		this.soLuong = soLuong;
-		this.nhaCungCap = nhaCungCap;
-		this.nguongDatHang = nguongDatHang;
-		this.ghiChu = ghiChu;
-		this.anh = anh;
-		
-	}
+    	this.tenVPP = tenVPP;
+    	this.donGia = donGia;
+    	this.soLuong = soLuong;
+    	this.nhaCungCap = nhaCungCap;
+    	this.nguongDatHang = nguongDatHang;
+    	this.ghiChu = ghiChu;
+    	this.anh = anh;
+    	this.khuyenMai = khuyenMai;
+    	this.maLoaiVPP = maLoaiVPP;
+    	
+}
     
     public int getMaVPP() { return maVPP; }
 	public void setMaVPP(int maVPP) { this.maVPP = maVPP; }
@@ -40,4 +45,9 @@ public class VanPhongPham {
 	public void setGhiChu(String ghiChu) { this.ghiChu = ghiChu; }
 	public String getAnh() { return anh; }
     public void setAnh(String anh) { this.anh = anh; }
+    public String getKhuyenMai() { return khuyenMai; }
+    public void setKhuyenMai(String khuyenMai) { this.khuyenMai = khuyenMai; }
+    public int getMaLoaiVPP() { return maLoaiVPP; }
+    public void setMaLoaiVPP(int maLoaiVPP) { this.maLoaiVPP = maLoaiVPP; }
+    
 }

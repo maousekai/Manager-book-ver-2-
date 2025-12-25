@@ -13,13 +13,13 @@ public class DatabaseManager {
 	        try {
 	            Class.forName("com.microsoft.sqlserver.jdbc.SQLServerDriver");
 	            Connection conn = DriverManager.getConnection(URL, USER, PASSWORD);
-	            System.out.println("✅ Kết nối database thành công!");
+	            System.out.println("Kết nối database thành công!");
 	            return conn;
 	        } catch (ClassNotFoundException e) {
-	            System.err.println("❌ Không tìm thấy driver JDBC SQL Server!");
+	            System.err.println("Không tìm thấy driver JDBC SQL Server!");
 	            e.printStackTrace();
 	        } catch (SQLException e) {
-	            System.err.println("❌ Lỗi SQL khi kết nối: " + e.getMessage());
+	            System.err.println("Lỗi SQL khi kết nối: " + e.getMessage());
 	            e.printStackTrace();
 	        }
 	        return null;

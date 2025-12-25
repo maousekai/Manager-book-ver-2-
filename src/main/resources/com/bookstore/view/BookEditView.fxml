@@ -10,7 +10,7 @@
 <VBox prefWidth="650.0" spacing="15" styleClass="popup-card"
       xmlns="http://javafx.com/javafx/17" 
       xmlns:fx="http://javafx.com/fxml/1" 
-      fx:controller="com.bookstore.controller.BookEditController">
+      fx:controller="com.bookstore.controller.SachEditController">
     <padding>
         <Insets top="20" right="30" bottom="30" left="30"/>
     </padding>
@@ -25,17 +25,23 @@
         
         <Label text="Giá bán:" GridPane.rowIndex="1" GridPane.columnIndex="0"/>
         <TextField fx:id="priceField" styleClass="input-field" GridPane.rowIndex="1" GridPane.columnIndex="1"/>
+
+        <Label text="Khuyến Mãi:" GridPane.rowIndex="2" GridPane.columnIndex="0"/>
+        <HBox spacing="5" GridPane.rowIndex="2" GridPane.columnIndex="1">
+            <TextField fx:id="promotionField" promptText="VD: GIAM_10" styleClass="input-field" HBox.hgrow="ALWAYS"/>
+            <Button text="Xóa" onAction="#handleClearPromotion" styleClass="button-secondary" style="-fx-font-size: 10px;"/>
+        </HBox>
+
+        <Label text="Số lượng tồn kho :" GridPane.rowIndex="3" GridPane.columnIndex="0"/>
+        <TextField fx:id="stockField" styleClass="input-field" GridPane.rowIndex="3" GridPane.columnIndex="1" disable="true" promptText="Chỉ có thể thay đổi bằng 'Nhập kho'"/>
         
-        <Label text="Số lượng tồn:" GridPane.rowIndex="2" GridPane.columnIndex="0"/>
-        <TextField fx:id="stockField" styleClass="input-field" GridPane.rowIndex="2" GridPane.columnIndex="1" disable="true" promptText="Chỉ có thể thay đổi bằng 'Nhập kho'"/>
-        
-        <Label text="Tên file ảnh:" GridPane.rowIndex="3" GridPane.columnIndex="0"/>
-			<HBox spacing="10" GridPane.rowIndex="3" GridPane.columnIndex="1">
-    		<TextField fx:id="imageField" styleClass="input-field" HBox.hgrow="ALWAYS" 
+        <Label text="Tên file ảnh:" GridPane.rowIndex="4" GridPane.columnIndex="0"/>
+        <HBox spacing="10" GridPane.rowIndex="4" GridPane.columnIndex="1">
+            <TextField fx:id="imageField" styleClass="input-field" HBox.hgrow="ALWAYS" 
                editable="true" promptText="Chọn ảnh từ nút bên cạnh..."/>
-    		<Button fx:id="chooseImageButton" text="Chọn Ảnh" onAction="#handleChooseImage" 
+            <Button fx:id="chooseImageButton" text="Chọn Ảnh" onAction="#handleChooseImage" 
             styleClass="button-secondary"/>
-			</HBox>
+        </HBox>
     </GridPane>
     
     <VBox fx:id="bookFieldsBox" spacing="8">

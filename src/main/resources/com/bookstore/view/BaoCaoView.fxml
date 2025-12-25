@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.TableView?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.Text?>
+<?import javafx.scene.chart.BarChart?>
+<?import javafx.scene.chart.CategoryAxis?>
+<?import javafx.scene.chart.NumberAxis?>
+<?import javafx.scene.chart.PieChart?>
+
+<VBox spacing="15.0" xmlns="http://javafx.com/javafx/17" 
+      xmlns:fx="http://javafx.com/fxml/1" 
+      fx:controller="com.bookstore.controller.BaoCaoController">
+    <children>
+        <HBox spacing="10" alignment="CENTER_LEFT">
+             <Text text="Báo cáo Doanh thu" style="-fx-font-size: 28px; -fx-font-weight: 700; -fx-fill: #333;"/>
+             <Region HBox.hgrow="ALWAYS"/>
+             
+             <Label text="Lọc theo ngày:"/>
+             <DatePicker fx:id="startDatePicker" promptText="Từ ngày" prefWidth="120"/>
+             <DatePicker fx:id="endDatePicker" promptText="Đến ngày" prefWidth="120"/>
+             <Button text="Lọc" onAction="#handleFilter" styleClass="button-primary"/>
+             
+             <Separator orientation="VERTICAL" style="-fx-padding: 0 10;"/>
+             
+             <Label text="Lọc theo Tháng/Năm:"/>
+             <ComboBox fx:id="monthComboBox" promptText="Chọn tháng" prefWidth="120"/>
+             <ComboBox fx:id="yearComboBox" promptText="Chọn năm" prefWidth="100"/>
+             <Button text="Lọc Tháng/Năm" onAction="#handleFilterByMonthYear" styleClass="button-primary"/>
+        </HBox>
+        
+        <HBox spacing="20">
+            <VBox styleClass="card" prefWidth="300.0">
+                <Label text="Tổng Doanh thu"/>
+                <Label fx:id="revenueLabel" text="0 VND" style="-fx-font-size: 24px; -fx-font-weight: bold;-fx-text-fill: #1976D2;"/>
+            </VBox>
+            <VBox styleClass="card" prefWidth="300.0">
+                <Label text="Tổng Lợi nhuận"/>
+                <Label fx:id="profitLabel" text="0 VND" style="-fx-font-size: 24px; -fx-font-weight: bold;-fx-text-fill: #2E7D32;"/>
+            </VBox>
+            <VBox styleClass="card" prefWidth="300.0">
+                <Label text="Tổng Sản phẩm bán ra"/>
+                <Label fx:id="itemsSoldLabel" text="0" style="-fx-font-size: 24px; -fx-font-weight: bold;"/>
+            </VBox>
+        </HBox>
+        
+        <HBox spacing="20" VBox.vgrow="ALWAYS">
+            <VBox styleClass="card" HBox.hgrow="ALWAYS">
+                <Label text="Doanh thu theo ngày" style="-fx-font-weight: bold;"/>
+                <BarChart fx:id="revenueBarChart" prefHeight="300.0">
+                    <xAxis><CategoryAxis label="Ngày"/></xAxis>
+                    <yAxis><NumberAxis label="Doanh thu (VND)"/></yAxis>
+                </BarChart>
+            </VBox>
+            <VBox styleClass="card" prefWidth="550.0">
+                 <Label text="Top 5 Thể loại bán chạy" style="-fx-font-weight: bold;"/>
+                 <PieChart fx:id="genrePieChart" prefHeight="350.0" labelsVisible="true"/>
+            </VBox>
+        </HBox>
+        
+        <VBox styleClass="card" VBox.vgrow="ALWAYS">
+            <Label text="Top 10 Sách bán chạy" style="-fx-font-weight: bold;"/>
+            <TableView fx:id="rankingTable" styleClass="table-view-modern" prefHeight="300.0">
+                <columnResizePolicy>
+                    <TableView fx:constant="CONSTRAINED_RESIZE_POLICY"/>
+                </columnResizePolicy>
+            </TableView>
+        </VBox>
+        
+    </children>
+</VBox>

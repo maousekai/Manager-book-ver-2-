@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.geometry.Insets?>
+
+<BorderPane xmlns="http://javafx.com/javafx/17"
+            xmlns:fx="http://javafx.com/fxml/1"
+            fx:controller="com.bookstore.controller.BangChamCongController"
+            stylesheets="@styles.css">
+
+    <!-- HEADER -->
+    <top>
+        <Label text="CHẤM CÔNG NHÂN VIÊN"
+               BorderPane.alignment="CENTER"
+               styleClass="card"/>
+    </top>
+
+    <!-- CENTER CONTENT -->
+    <center>
+        <VBox spacing="15">
+            <padding>
+                <Insets top="20" right="20" bottom="20" left="20"/>
+            </padding>
+
+            <!-- BUTTON -->
+            <HBox spacing="15">
+                <Button text="✔ Chấm công vào"
+                        onAction="#handleCheckIn"
+                        styleClass="button-primary"/>
+
+                <Button text="❌ Chấm công ra"
+                        onAction="#handleCheckOut"
+                        styleClass="button-secondary"/>
+            </HBox>
+
+            <!-- TABLE -->
+            <TableView fx:id="bangChamCongTable"
+                       VBox.vgrow="ALWAYS"
+                       styleClass="table-view-modern">
+                <columns>
+                    <TableColumn text="Nhân viên" fx:id="colNhanVien" prefWidth="200"/>
+                    <TableColumn text="Ngày" fx:id="colNgay" prefWidth="120"/>
+                    <TableColumn text="Giờ vào" fx:id="colGioVao" prefWidth="120"/>
+                    <TableColumn text="Giờ ra" fx:id="colGioRa" prefWidth="120"/>
+                    <TableColumn text="Giờ làm" fx:id="colGioLam" prefWidth="120"/>
+                </columns>
+            </TableView>
+
+        </VBox>
+    </center>
+
+</BorderPane>

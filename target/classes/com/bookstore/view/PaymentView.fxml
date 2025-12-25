@@ -16,12 +16,16 @@
     <Text text="Xác nhận Thanh toán" style="-fx-font-size: 22px; -fx-font-weight: 700;"/>
     
     <GridPane hgap="10" vgap="5">
-        <Label text="Tổng cộng:" style="-fx-font-weight: bold; -fx-font-size: 16px;" GridPane.rowIndex="0" GridPane.columnIndex="0"/>
-        <Label fx:id="totalLabel" text="204,000 VND" style="-fx-font-weight: bold; -fx-font-size: 20px; -fx-text-fill: #D32F2F;" GridPane.rowIndex="0" GridPane.columnIndex="1" alignment="CENTER_RIGHT"/>
-        
-        <Label text="Khuyến mãi:" style="-fx-font-size: 14px;" GridPane.rowIndex="1" GridPane.columnIndex="0"/>
-        <Label fx:id="discountLabel" text="Không áp dụng" style="-fx-font-size: 14px; -fx-text-fill: #1976D2;" GridPane.rowIndex="1" GridPane.columnIndex="1" alignment="CENTER_RIGHT"/>
-    </GridPane>
+    <Label text="Tổng cộng:" style="-fx-font-weight: bold; -fx-font-size: 16px;" GridPane.rowIndex="0" GridPane.columnIndex="0"/>
+    <Label fx:id="totalLabel" text="204,000 VND" style="-fx-font-weight: bold; -fx-font-size: 20px; -fx-text-fill: #D32F2F;" GridPane.rowIndex="0" GridPane.columnIndex="1" alignment="CENTER_RIGHT"/>
+
+    <Label text="Khuyến mãi:" GridPane.rowIndex="1" GridPane.columnIndex="0"/>
+    <Label fx:id="promoLabel" text="0 VND" style="-fx-text-fill: green; -fx-font-weight: bold;" GridPane.rowIndex="1" GridPane.columnIndex="1" alignment="CENTER_RIGHT"/>
+
+    <Label text="Thành tiền:" style="-fx-font-weight: bold;" GridPane.rowIndex="2" GridPane.columnIndex="0"/>
+    <Label fx:id="finalTotalLabel" text="0 VND" style="-fx-font-weight: bold; -fx-font-size: 20px;" GridPane.rowIndex="2" GridPane.columnIndex="1" alignment="CENTER_RIGHT"/>
+</GridPane>
+
     
     <Separator/>
     

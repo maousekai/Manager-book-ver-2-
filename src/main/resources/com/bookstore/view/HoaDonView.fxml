@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.TableView?> 
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.Text?>
+<?import javafx.geometry.Insets?> <VBox spacing="15.0" xmlns="http://javafx.com/javafx/17" 
+      xmlns:fx="http://javafx.com/fxml/1" 
+      fx:controller="com.bookstore.controller.HoaDonController">
+    <padding>
+        <Insets top="0" right="0" bottom="0" left="0"/>
+    </padding>
+    <children>
+        <Text text="Quản lý Hóa đơn Bán hàng" 
+              style="-fx-font-size: 28px; -fx-font-weight: 700; -fx-fill: #333;"/>
+        
+        <HBox spacing="10" alignment="CENTER_LEFT" style="-fx-padding: 10px 0;">
+             <Button text="Làm mới" onAction="#loadInvoices" styleClass="button-secondary"/>
+             <Region HBox.hgrow="ALWAYS"/>
+             <DatePicker fx:id="startDatePicker" promptText="Từ ngày"/>
+             <DatePicker fx:id="endDatePicker" promptText="Đến ngày"/>
+             <Button text="Lọc" onAction="#handleFilter" styleClass="button-primary"/>
+        </HBox>
+
+        <TableView fx:id="invoiceTable" VBox.vgrow="ALWAYS" styleClass="table-view-modern">
+            <columns>
+            </columns>
+            <columnResizePolicy>
+                <TableView fx:constant="CONSTRAINED_RESIZE_POLICY"/>
+            </columnResizePolicy>
+        </TableView>
+        </children>
+</VBox>

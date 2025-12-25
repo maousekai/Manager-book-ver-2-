@@ -25,12 +25,17 @@
         
         <Label text="Giá bán:" GridPane.rowIndex="1" GridPane.columnIndex="0"/>
         <TextField fx:id="priceField" styleClass="input-field" GridPane.rowIndex="1" GridPane.columnIndex="1"/>
+
+        <Label text="Khuyến Mãi:" GridPane.rowIndex="2" GridPane.columnIndex="0"/>
+        <HBox spacing="5" GridPane.rowIndex="2" GridPane.columnIndex="1">
+             <TextField fx:id="promotionField" promptText="VD: GIAM_10" styleClass="input-field" HBox.hgrow="ALWAYS"/>
+             </HBox>
         
-        <Label text="Số lượng tồn:" GridPane.rowIndex="2" GridPane.columnIndex="0"/>
-        <TextField fx:id="stockField" styleClass="input-field" GridPane.rowIndex="2" GridPane.columnIndex="1" disable="true" promptText="Chỉ có thể thay đổi bằng 'Nhập kho'"/>
+        <Label text="Số lượng tồn:" GridPane.rowIndex="3" GridPane.columnIndex="0"/>
+        <TextField fx:id="stockField" styleClass="input-field" GridPane.rowIndex="3" GridPane.columnIndex="1" disable="true" promptText="Chỉ có thể thay đổi bằng 'Nhập kho'"/>
         
-        <Label text="Tên file ảnh:" GridPane.rowIndex="3" GridPane.columnIndex="0"/>
-        <TextField fx:id="imageField" styleClass="input-field" GridPane.rowIndex="3" GridPane.columnIndex="1"/>
+        <Label text="Tên file ảnh:" GridPane.rowIndex="4" GridPane.columnIndex="0"/>
+        <TextField fx:id="imageField" styleClass="input-field" GridPane.rowIndex="4" GridPane.columnIndex="1"/>
     </GridPane>
     
     <VBox fx:id="vppFieldsBox" spacing="8">

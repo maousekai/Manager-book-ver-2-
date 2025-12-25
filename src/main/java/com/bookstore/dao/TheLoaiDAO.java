@@ -1,6 +1,6 @@
 package com.bookstore.dao;
 
-import com.bookstore.model.GenreStats;
+import com.bookstore.model.ThongSoTheLoai;
 import com.bookstore.model.TheLoai;
 import com.bookstore.util.DatabaseManager;
 import java.sql.*;
@@ -84,8 +84,8 @@ public class TheLoaiDAO {
         }
     }
     // Thống kê 5 thể loại bán chạy nhất trong khoảng thời gian
-    public List<GenreStats> getGenreStats(LocalDate start, LocalDate end) throws SQLException {
-        List<GenreStats> list = new ArrayList<>();
+    public List<ThongSoTheLoai> getGenreStats(LocalDate start, LocalDate end) throws SQLException {
+        List<ThongSoTheLoai> list = new ArrayList<>();
         String sql = "SELECT TOP 5 tl.TenTL, SUM(ct.SoLuong) as SoLuongBan " +
                      "FROM TheLoai tl " +
                      "JOIN Sach_TheLoai stl ON tl.MaTL = stl.MaTL " +
@@ -101,7 +101,7 @@ public class TheLoaiDAO {
             
             try (ResultSet rs = ps.executeQuery()) {
                 while (rs.next()) {
-                    GenreStats gs = new GenreStats();
+                    ThongSoTheLoai gs = new ThongSoTheLoai();
                     gs.setTenTheLoai(rs.getString("TenTL"));
                     gs.setSoLuongBan(rs.getInt("SoLuongBan"));
                     list.add(gs);

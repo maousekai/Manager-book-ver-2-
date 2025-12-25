@@ -7,6 +7,7 @@ public class BangChamCong {
     private int maChamCong;
     private int maNV;
     private int maCa;
+    private String tenNV;
     private LocalDate ngayLam;
     private LocalTime gioVao;
     private LocalTime gioRa;
@@ -39,6 +40,8 @@ public class BangChamCong {
  	public void setMaCa(int maCa) {this.maCa = maCa;}
  	public LocalDate getNgayLam() {return ngayLam;}
  	public void setNgayLam(LocalDate ngayLam) {this.ngayLam = ngayLam;}
+ 	public String getTenNV() { return tenNV; }
+ 	public void setTenNV(String tenNV) { this.tenNV = tenNV; }
  	public LocalTime getGioVao() {return gioVao;}
  	public void setGioVao(LocalTime gioVao) {this.gioVao = gioVao;}
  	public LocalTime getGioRa() {return gioRa;}

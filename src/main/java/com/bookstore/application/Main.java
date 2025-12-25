@@ -16,7 +16,7 @@ public class Main extends Application {
             StageManager.setPrimaryStage(primaryStage);
 
             // Tải FXML Đăng nhập
-            FXMLLoader loader = new FXMLLoader(getClass().getResource("/com/bookstore/view/LoginView.fxml"));
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("/com/bookstore/view/DangNhapView.fxml"));
             Parent root = loader.load();
             Scene scene = new Scene(root);
 

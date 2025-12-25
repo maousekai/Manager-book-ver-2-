@@ -1,10 +1,10 @@
 package com.bookstore.dao;
 
 import com.bookstore.model.HoaDon;
-import com.bookstore.model.ReportStats;
+import com.bookstore.model.ThongSoBaoCao;
 import com.bookstore.model.ChiTietHoaDon;
 import com.bookstore.model.ChiTietHoaDonVPP;
-import com.bookstore.model.DailyStats;
+import com.bookstore.model.ThongSoNgay;
 import com.bookstore.util.DatabaseManager;
 import java.sql.*;
 import java.time.LocalDate;
@@ -192,7 +192,7 @@ public class HoaDonDAO {
         return list;
     }
 // tính lợi nhuận cho cái bảng báo cáo
-    public ReportStats getReportStats(LocalDate start, LocalDate end) throws SQLException {
+    public ThongSoBaoCao getReportStats(LocalDate start, LocalDate end) throws SQLException {
         String sql = "SELECT " +
                      "    SUM(TongTien) as TotalRevenue, " +
                      "    SUM(LoiNhuan) as TotalProfit, " +
@@ -217,7 +217,7 @@ public class HoaDonDAO {
                      "    WHERE h.NgayLap BETWEEN ? AND ? " +
                      ") AS CombinedSales";
 
-        ReportStats stats = new ReportStats();
+        ThongSoBaoCao stats = new ThongSoBaoCao();
         try (Connection conn = DatabaseManager.getConnection();
              PreparedStatement ps = conn.prepareStatement(sql)) {
             ps.setDate(1, Date.valueOf(start));
@@ -236,8 +236,8 @@ public class HoaDonDAO {
         return stats;
     }
 // doanh thu theo ngày
-    public List<DailyStats> getDailyRevenue(LocalDate start, LocalDate end) throws SQLException {
-        List<DailyStats> list = new ArrayList<>();
+    public List<ThongSoNgay> getDailyRevenue(LocalDate start, LocalDate end) throws SQLException {
+        List<ThongSoNgay> list = new ArrayList<>();
         String sql = "SELECT NgayLap, SUM(TongTien) as DoanhThu " +
                      "FROM HoaDon " +
                      "WHERE NgayLap BETWEEN ? AND ? " +
@@ -250,7 +250,7 @@ public class HoaDonDAO {
             
             try (ResultSet rs = ps.executeQuery()) {
                 while (rs.next()) {
-                    DailyStats ds = new DailyStats();
+                    ThongSoNgay ds = new ThongSoNgay();
                     ds.setNgay(rs.getDate("NgayLap").toLocalDate());
                     ds.setDoanhThu(rs.getDouble("DoanhThu"));
                     list.add(ds);

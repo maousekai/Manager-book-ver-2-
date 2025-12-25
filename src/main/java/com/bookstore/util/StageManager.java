@@ -7,7 +7,7 @@ import javafx.stage.Stage;
 
 import java.io.IOException;
 
-public class StageManager {
+public class StageManager { // dùng để chuyển đồi màn hình FXML
     private static Stage primaryStage;
 
     public static void setPrimaryStage(Stage stage) {

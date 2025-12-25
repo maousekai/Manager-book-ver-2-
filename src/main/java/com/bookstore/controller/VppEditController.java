@@ -1,6 +1,6 @@
 package com.bookstore.controller;
 
-import com.bookstore.dao.VanPhongPhamDAO;
+import com.bookstore.dao.VppDAO;
 import com.bookstore.model.VanPhongPham;
 import com.bookstore.util.AlertUtil;
 import javafx.collections.FXCollections;
@@ -21,14 +21,15 @@ public class VppEditController {
     @FXML private ComboBox<String> supplierComboBox;
     @FXML private TextArea notesArea;
     @FXML private Button saveButton;
+    @FXML private TextField promotionField;
 
-    private VanPhongPhamDAO vppDAO = new VanPhongPhamDAO();
+    private VppDAO vppDAO = new VppDAO();
     private VanPhongPham currentVpp;
     private boolean dataChanged = false;
 
     @FXML
     private void initialize() {
-        // Tải các NCC (giả) giống như NewProductController
+        // Tải các NCC (giả) giống như ThemsanphamController
         supplierComboBox.setItems(FXCollections.observableArrayList(
             "Thiên Long", "Campus", "Hồng Hà", "Deli", "Pentel"
         ));
@@ -46,6 +47,7 @@ public class VppEditController {
         stockField.setText(String.valueOf(currentVpp.getSoLuong()));
         imageField.setText(currentVpp.getAnh());
         notesArea.setText(currentVpp.getGhiChu());
+        promotionField.setText(currentVpp.getKhuyenMai());
         supplierComboBox.setValue(currentVpp.getNhaCungCap()); // Đặt NCC
     }
 
@@ -58,6 +60,7 @@ public class VppEditController {
             currentVpp.setAnh(imageField.getText());
             currentVpp.setNhaCungCap(supplierComboBox.getValue()); // Lấy NCC từ ComboBox
             currentVpp.setGhiChu(notesArea.getText());
+            currentVpp.setKhuyenMai(promotionField.getText());
             
             // Gọi DAO để update
             vppDAO.update(currentVpp);

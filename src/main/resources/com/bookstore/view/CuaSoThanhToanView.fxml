@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.Text?>
+
+<VBox prefWidth="500.0" prefHeight="600.0" spacing="15" styleClass="popup-card"
+      xmlns="http://javafx.com/javafx/17" 
+      xmlns:fx="http://javafx.com/fxml/1" 
+      fx:controller="com.bookstore.controller.CuaSoThanhToanController">
+    <padding>
+        <Insets top="20" right="30" bottom="30" left="30"/>
+    </padding>
+    
+    <Text text="Xác nhận Thanh toán" style="-fx-font-size: 22px; -fx-font-weight: 700;"/>
+    
+    <GridPane hgap="10" vgap="5">
+    <Label text="Tổng cộng:" style="-fx-font-weight: bold; -fx-font-size: 16px;" GridPane.rowIndex="0" GridPane.columnIndex="0"/>
+    <Label fx:id="totalLabel" text="204,000 VND" style="-fx-font-weight: bold; -fx-font-size: 20px; -fx-text-fill: #D32F2F;" GridPane.rowIndex="0" GridPane.columnIndex="1" alignment="CENTER_RIGHT"/>
+
+    <Label text="Khuyến mãi:" GridPane.rowIndex="1" GridPane.columnIndex="0"/>
+    <Label fx:id="promoLabel" text="0 VND" style="-fx-text-fill: green; -fx-font-weight: bold;" GridPane.rowIndex="1" GridPane.columnIndex="1" alignment="CENTER_RIGHT"/>
+
+    <Label text="Thành tiền:" style="-fx-font-weight: bold;" GridPane.rowIndex="2" GridPane.columnIndex="0"/>
+    <Label fx:id="finalTotalLabel" text="0 VND" style="-fx-font-weight: bold; -fx-font-size: 20px;" GridPane.rowIndex="2" GridPane.columnIndex="1" alignment="CENTER_RIGHT"/>
+</GridPane>
+
+    
+    <Separator/>
+    
+    <Text text="Thông tin khách hàng" style="-fx-font-weight: 600;"/>
+    <GridPane hgap="10" vgap="8">
+        <Label text="Số điện thoại:" GridPane.rowIndex="0" GridPane.columnIndex="0"/>
+        <TextField fx:id="customerPhoneField" promptText="Nhập SĐT để tìm/thêm" GridPane.rowIndex="0" GridPane.columnIndex="1" styleClass="input-field"/>
+    </GridPane>
+    
+    <VBox fx:id="newCustomerBox" spacing="8" managed="false" visible="false">
+         <Label text="Khách hàng mới (Không tìm thấy SĐT)" style="-fx-font-weight: 600; -fx-text-fill: #D32F2F;"/>
+        <GridPane hgap="10" vgap="8">
+            <Label text="Họ tên:" GridPane.rowIndex="0" GridPane.columnIndex="0"/>
+            <TextField fx:id="customerNameField" promptText="Tên khách hàng mới" GridPane.rowIndex="0" GridPane.columnIndex="1" styleClass="input-field"/>
+            
+            <Label text="Địa chỉ:" GridPane.rowIndex="1" GridPane.columnIndex="0"/>
+            <TextField fx:id="customerAddressField" promptText="Địa chỉ (nếu có)" GridPane.rowIndex="1" GridPane.columnIndex="1" styleClass="input-field"/>
+        </GridPane>
+    </VBox>
+    
+    <Label fx:id="customerStatusLabel" style="-fx-font-weight: bold; -fx-text-fill: #1976D2;" managed="false" visible="false"/>
+    
+    <Separator/>
+    
+    <GridPane hgap="10" vgap="8">
+        <Label text="Phương thức:" GridPane.rowIndex="0" GridPane.columnIndex="0"/>
+        <ComboBox fx:id="paymentMethodCombo" maxWidth="Infinity" GridPane.rowIndex="0" GridPane.columnIndex="1" styleClass="input-field"/>
+    </GridPane>
+    
+    <Button fx:id="payButton" text="Xác nhận &amp; In hóa đơn" 
+            onAction="#handlePay" 
+            styleClass="button-primary" 
+            maxWidth="Infinity" prefHeight="45.0"/>
+</VBox>

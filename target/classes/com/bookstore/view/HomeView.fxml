@@ -77,6 +77,14 @@
                             </ImageView>
                         </graphic>
                     </Button>
+                    <Button fx:id="attendanceButton" text="Chấm Công" styleClass="hub-button">
+                        <graphic>
+                            <ImageView fitWidth="64" fitHeight="64">
+                                <Image url="/com/bookstore/view/images/icon_attendance.png"/>
+                            </ImageView>
+                        </graphic>
+                    </Button>
+                    
                     
                 </children>
             </TilePane>

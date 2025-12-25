@@ -1,17 +1,11 @@
-/*
-===================================
-=== TỆP CSS CUỐI CÙNG (ĐÃ DỌN DẸP) ===
-===================================
-*/
 
-/* === NỀN TẢNG & FONT === */
 .root {
     -fx-font-family: "Segoe UI", "Arial", sans-serif;
     -fx-font-size: 14px;
     -fx-background-color: #F5F7FA; /* Màu nền xám-trắng hiện đại */
 }
 
-/* === THANH TOP-BAR (HEADER) === */
+/*  THANH TOP-BAR (HEADER) */
 .top-bar {
     -fx-background-color: #FFFFFF;
     -fx-border-color: #E0E0E0;
@@ -19,7 +13,7 @@
     -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.05), 10, 0, 0, 3);
 }
 
-/* === THANH SIDEBAR (MENU ĐIỀU HƯỚNG) === */
+/*  THANH SIDEBAR (MENU ĐIỀU HƯỚNG)  */
 .sidebar {
     -fx-background-color: #FFFFFF;
     -fx-border-color: #E0E0E0;
@@ -51,7 +45,7 @@
     -fx-border-width: 0 0 0 5px;
 }
 
-/* === THẺ CARD (NỘI DUNG CHÍNH) === */
+/* THẺ CARD  */
 .card {
     -fx-background-color: #FFFFFF;
     -fx-background-radius: 12px;
@@ -62,7 +56,7 @@
     -fx-border-width: 1px;
 }
 
-/* === NÚT BẤM (BUTTONS) === */
+/* NÚT BẤM (BUTTONS) */
 .button-primary {
     -fx-background-color: #1976D2; /* Xanh dương */
     -fx-text-fill: #FFFFFF;
@@ -92,7 +86,7 @@
     -fx-border-color: #333333;
 }
 
-/* === TRƯỜNG NHẬP LIỆU (INPUTS) === */
+/*  TRƯỜNG NHẬP LIỆU (INPUTS)  */
 .input-field, .combo-box {
     -fx-background-color: #FFFFFF;
     -fx-border-color: #BDBDBD;
@@ -105,11 +99,6 @@
     -fx-effect: dropshadow(gaussian, rgba(25,118,210,0.3), 5, 0, 0, 1);
 }
 
-/*
-===================================
-=== NÂNG CẤP TABLEVIEW (HIỆN ĐẠI) ===
-===================================
-*/
 
 /* Đặt nền trắng cho toàn bộ bảng */
 .table-view-modern {
@@ -134,7 +123,6 @@
     -fx-padding: 12px;
 }
 
-/* Sửa lỗi màu nền xen kẽ */
 .table-view-modern .table-row-cell {
     -fx-background-color: #FFFFFF; /* TẤT CẢ HÀNG MÀU TRẮNG */
     -fx-border-color: transparent transparent #F0F0F0 transparent;
@@ -153,7 +141,6 @@
     -fx-background-color: #F0F5FA; /* Màu xám xanh nhạt khi rê chuột */
 }
 
-/* 🔻 SỬA: KHI CLICK (CHỌN) HÀNG 🔻 */
 .table-view-modern .table-row-cell:selected {
     -fx-background-color: #E3F2FD; /* Màu xanh da trời rất nhạt (sáng nhẹ) */
     -fx-text-fill: #000000;
@@ -161,10 +148,9 @@
 .table-view-modern .table-row-cell:selected .table-cell {
     -fx-text-fill: #000000; /* Chữ đen khi chọn */
 }
-/* 🔺 -------------------------- 🔺 */
 
 
-/* === NÂNG CẤP FORM (Dùng cho Pop-up/Tab) === */
+/*  NÂNG CẤP FORM (Dùng cho Pop-up/Tab)  */
 .grid-pane-form .label {
     -fx-font-weight: 600;
     -fx-text-fill: #444;
@@ -178,11 +164,7 @@
     -fx-border-radius: 12px;
     -fx-border-width: 1px;
 }
-/*
-===================================
-=== NÚT CHỨC NĂNG (HUB BUTTONS) ===
-===================================
-*/
+/* Nút lớn trong Hub (Icon + Chữ) */
 .hub-button {
     -fx-pref-width: 180px; /* Kích thước nút */
     -fx-pref-height: 150px;
@@ -210,11 +192,6 @@
     -fx-background-insets: 0;
     -fx-padding: 0;
 }
-/*
-===================================
-=== POP-UP SIDEBAR (MENU MỚI) ===
-===================================
-*/
 
 /* Kiểu cho nút Menu (Icon) */
 .button-icon {
@@ -236,11 +213,6 @@
     -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.15), 20, 0, 0, 5);
 }
 
-/*
-===================================
-=== HIỆU ỨNG THU GỌN SIDEBAR ===
-===================================
-*/
 
 /* Ẩn thanh cuộn ngang của ListView trong sidebar */
 .sidebar .list-view {
@@ -274,11 +246,7 @@
     -fx-pref-height: 0;
     -fx-max-height: 0;
 }
-/*
-===================================
-=== NÂNG CẤP BỘ LỌC (ACCORDION) ===
-===================================
-*/
+
 
 /* Ghi đè Accordion bên trong .card để nó phẳng */
 .card .accordion {
@@ -324,12 +292,6 @@
     -fx-border-width: 0;
 }
 
-/*
-===================================
-=== SỬA LỖI MÀU XEN KẼ (LISTVIEW) ===
-===================================
-*/
-
 /* Ghi đè ListView BÊN TRONG bộ lọc (Accordion) */
 .card .list-view {
     -fx-background-color: transparent;
@@ -352,5 +314,33 @@
 .card .list-view .list-cell:selected {
     -fx-background-color: #E3F2FD; /* Xanh nhạt khi chọn */
     -fx-text-fill: #1976D2; /* Chữ xanh */
+    -fx-font-weight: bold;
+}
+/* Giá bán (Màu đỏ, đậm) */
+.price-sale {
+    -fx-text-fill: #C92127; /* Đỏ Fahasa */
+    -fx-font-weight: bold;
+    -fx-font-size: 16px;
+}
+
+/* Giá gốc (Màu xám, gạch ngang) */
+.price-original {
+    -fx-text-fill: #888888;
+    -fx-font-size: 13px;
+    -fx-strikethrough: true; /* Gạch ngang chữ */
+}
+
+/* Nhãn giảm giá (Hộp đỏ, chữ trắng) */
+.discount-badge {
+    -fx-background-color: #C92127;
+    -fx-text-fill: white;
+    -fx-font-weight: bold;
+    -fx-font-size: 11px;
+    -fx-padding: 2 5 2 5;
+    -fx-background-radius: 4;
+}
+#discountLabel {
+    -fx-font-size: 14px;
+    -fx-font-style: italic;
     -fx-font-weight: bold;
 }

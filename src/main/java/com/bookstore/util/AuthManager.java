@@ -14,9 +14,10 @@ public class AuthManager {
     public static void logout() {
         currentUserId = null;
         currentRole = 0; 
+        lastActivityTime = 0;
     }
 
-    public static boolean isLoggedIn() {
+    public static boolean isLoggedIn() { // Kiểm tra có còn đăng nhập
         if (System.currentTimeMillis() - lastActivityTime > 30 * 60 * 1000) { 
             logout();
             return false;
